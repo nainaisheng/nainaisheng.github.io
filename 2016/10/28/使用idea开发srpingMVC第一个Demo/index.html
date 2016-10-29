@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hexo</title>
+        
+        <!-- 主css -->
+        <link rel="stylesheet" href="/sass/main.css">
+        <!-- seo -->
+            <meta name="description" content="JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用idea开发srpingMVC第一个Demo">
+<meta property="og:url" content="http://yoursite.com/2016/10/28/使用idea开发srpingMVC第一个Demo/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。">
+<meta property="og:image" content="http://img.blog.csdn.net/20160428091103165">
+<meta property="og:image" content="http://img.blog.csdn.net/20160428091619157">
+<meta property="og:image" content="http://img.blog.csdn.net/20160428091816096">
+<meta property="og:image" content="http://img.blog.csdn.net/20160428092151895">
+<meta property="og:image" content="http://img.blog.csdn.net/20160428092321510">
+<meta property="og:image" content="http://img.blog.csdn.net/20160428092720116">
+<meta property="og:image" content="http://img.blog.csdn.net/20160428122533735">
+<meta property="og:updated_time" content="2016-10-28T04:44:08.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用idea开发srpingMVC第一个Demo">
+<meta name="twitter:description" content="JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160428091103165">
+            <!-- facicon -->
+        
+        <link rel="icon" href="http://of8rkrh1w.bkt.clouddn.com/e37b0a62456a13053be851ebabf6040c.jpg">
+                
+        <!-- 统计 -->
+        
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-75314797-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+        
+</head>
+
+	<body>
+		<div class="main">
+			<div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/">nona</a>
+</div>
+<header class="nav-header">
+    <a href="/" class="logo-link">nona</a>
+    
+            
+    <ul class="nav nav-list">
+        <li class="nav-list-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="nav-list-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</header>
+<div class="sidebar">
+    
+            
+    <ul class="main-menu">
+        <li class="main-menu-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="main-menu-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</div>
+
+<h1 class="title">The nona Blog</h1>
+
+			
+<article class="article-main" itemscope itemprop="blogPost">
+        <div class="articleCon">
+            <header class="article-header">
+                <h1 itemprop="name">
+                    <a href="/2016/10/28/使用idea开发srpingMVC第一个Demo/" class="article-title">使用idea开发srpingMVC第一个Demo</a>
+                </h1>
+            </header>
+            <div class="article-meta">
+                <div class="article-dateTime">
+    <a href="/2016/10/28/使用idea开发srpingMVC第一个Demo/" class="article-date">
+        <time datetime="Oct 28th 2016" itemprop="datePublished">
+            Oct 28th 2016
+        </time>
+    </a>
+</div>
+
+            </div>
+            <div class="article-inner">
+                <div class="article-entry" itemprop="articleBody">
+                    <h2 id="第一个springMVC例子"><a href="#第一个springMVC例子" class="headerlink" title="第一个springMVC例子"></a>第一个springMVC例子</h2><p>主要目的是熟悉intellij的web项目操作和springMVC的基本概念</p>
+<p>具体操作如下：</p>
+<h3 id="创建intellij-idea-web-module"><a href="#创建intellij-idea-web-module" class="headerlink" title="创建intellij idea web module"></a>创建intellij idea web module</h3><p><img src="http://img.blog.csdn.net/20160428091103165" alt=""></p>
+<p>然后填写module名 点击确认 module创建完毕</p>
+<h3 id="在module的web-WEB-INF下新建-classes和lib文件夹"><a href="#在module的web-WEB-INF下新建-classes和lib文件夹" class="headerlink" title="在module的web-WEB-INF下新建 classes和lib文件夹"></a>在module的web-WEB-INF下新建 classes和lib文件夹</h3><p><img src="http://img.blog.csdn.net/20160428091619157" alt=""></p>
+<h3 id="修改项目的配置"><a href="#修改项目的配置" class="headerlink" title="修改项目的配置"></a>修改项目的配置</h3><p>点击file-&gt;Project Struture 修改Modules下的paths 修改完毕点击OK</p>
+<p><img src="http://img.blog.csdn.net/20160428091816096" alt="这里写图片描述"></p>
+<h3 id="配置tomcat-点击run-gt-edit-configurations"><a href="#配置tomcat-点击run-gt-edit-configurations" class="headerlink" title="配置tomcat 点击run-&gt;edit configurations"></a>配置tomcat 点击run-&gt;edit configurations</h3><p>点绿色的十字图标 创建tomcat并配置<br><img src="http://img.blog.csdn.net/20160428092151895" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20160428092321510" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20160428092720116" alt="这里写图片描述"></p>
+<h3 id="首先配置web-xml"><a href="#首先配置web-xml" class="headerlink" title="首先配置web.xml"></a>首先配置web.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></div><div class="line">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span></div><div class="line">         <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</div><div class="line">    <span class="comment">&lt;!--配置dispatcherservlet 以及mapping--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>mvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>mvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="配置mvc-servelet"><a href="#配置mvc-servelet" class="headerlink" title="配置mvc-servelet"></a>配置mvc-servelet</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></div><div class="line">        http://www.springframework.org/schema/beans</div><div class="line">        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</div><div class="line">        http://www.springframework.org/schema/context</div><div class="line">        http://www.springframework.org/schema/context/spring-context-3.0.xsd"&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.jsu.mvc"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!-- 这个配置是配置JSP页面的位置，按照你自己的配置来配 --&gt;</span></div><div class="line">            <span class="comment">&lt;!--jsp文件夹需要自己手动创建--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>/WEB-INF/jsp/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>.jsp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="在jsp目录下新建hello-jsp"><a href="#在jsp目录下新建hello-jsp" class="headerlink" title="在jsp目录下新建hello.jsp"></a>在jsp目录下新建hello.jsp</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;title&gt;hello mvc&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">$&#123;msg &#125;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="在src中编写controller类"><a href="#在src中编写controller类" class="headerlink" title="在src中编写controller类"></a>在src中编写controller类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</div><div class="line"> <span class="meta">@RequestMapping</span>(value=<span class="string">"/hello"</span>,method = RequestMethod.GET)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">printWelcome</span><span class="params">(ModelMap model)</span> </span>&#123;</div><div class="line">        model.addAttribute(<span class="string">"msg"</span>, <span class="string">"Spring 3 MVC Hello World"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="http://img.blog.csdn.net/20160428122533735" alt="这里写图片描述"></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>第一个小demo到此结束！</p>
+<p>与君共勉！</p>
+
+                </div>
+                
+<nav id="article-nav">
+  
+    <a href="/2016/10/28/springMVC-几种页面跳转方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        
+          springMVC 几种页面跳转方式 >
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+            </div>
+        </div>
+        
+            <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//yzzting.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//yzzting.disqus.com/count.js" async></script>
+
+        
+        
+</article>
+
+
+
+		</div>
+		<div id="heart"></div>
+
+    <footer class="blog-footer" id="blog-footer">
+        <div id="footer-info" class="inner">
+            Made with ♥ by <a href="https://github.com/yzzting/hexo-theme-MyFairLady" target="_blank">MyFairLady</a>
+        </div>
+    </footer>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toTop.js"></script>
+
+	</body>
+	</html>

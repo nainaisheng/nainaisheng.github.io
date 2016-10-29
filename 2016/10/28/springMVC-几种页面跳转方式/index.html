@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hexo</title>
+        
+        <!-- 主css -->
+        <link rel="stylesheet" href="/sass/main.css">
+        <!-- seo -->
+            <meta name="description" content="Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的SpringMVC框架或集成其他MVC开发框架，如Struts1，Struts2等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springMVC 几种页面跳转方式">
+<meta property="og:url" content="http://yoursite.com/2016/10/28/springMVC-几种页面跳转方式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的SpringMVC框架或集成其他MVC开发框架，如Struts1，Struts2等。">
+<meta property="og:updated_time" content="2016-10-28T14:01:04.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="springMVC 几种页面跳转方式">
+<meta name="twitter:description" content="Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的SpringMVC框架或集成其他MVC开发框架，如Struts1，Struts2等。">
+            <!-- facicon -->
+        
+        <link rel="icon" href="http://of8rkrh1w.bkt.clouddn.com/e37b0a62456a13053be851ebabf6040c.jpg">
+                
+        <!-- 统计 -->
+        
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-75314797-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+        
+</head>
+
+	<body>
+		<div class="main">
+			<div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/">nona</a>
+</div>
+<header class="nav-header">
+    <a href="/" class="logo-link">nona</a>
+    
+            
+    <ul class="nav nav-list">
+        <li class="nav-list-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="nav-list-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</header>
+<div class="sidebar">
+    
+            
+    <ul class="main-menu">
+        <li class="main-menu-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="main-menu-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</div>
+
+<h1 class="title">The nona Blog</h1>
+
+			
+<article class="article-main" itemscope itemprop="blogPost">
+        <div class="articleCon">
+            <header class="article-header">
+                <h1 itemprop="name">
+                    <a href="/2016/10/28/springMVC-几种页面跳转方式/" class="article-title">springMVC 几种页面跳转方式</a>
+                </h1>
+            </header>
+            <div class="article-meta">
+                <div class="article-dateTime">
+    <a href="/2016/10/28/springMVC-几种页面跳转方式/" class="article-date">
+        <time datetime="Oct 28th 2016" itemprop="datePublished">
+            Oct 28th 2016
+        </time>
+    </a>
+</div>
+
+            </div>
+            <div class="article-inner">
+                <div class="article-entry" itemprop="articleBody">
+                    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面已经了解了Controller的几种配置方式<br>今天主要写一下响应界面跳转的几种方式</p>
+<h2 id="在注解的方式中"><a href="#在注解的方式中" class="headerlink" title="在注解的方式中"></a>在注解的方式中</h2><h3 id="通过HttpServletResponse的API直接输出（不需要配置渲染器）"><a href="#通过HttpServletResponse的API直接输出（不需要配置渲染器）" class="headerlink" title="通过HttpServletResponse的API直接输出（不需要配置渲染器）"></a>通过HttpServletResponse的API直接输出（不需要配置渲染器）</h3><pre><code>controller类的主要代码
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestController</span></span>&#123;</div><div class="line"> <span class="meta">@RequestMapping</span>(<span class="string">"/resp"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">         resp.getWriter().println(<span class="string">"hello HttpServletResponse"</span>);</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>web.xml配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></div><div class="line">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span></div><div class="line">         <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>dispatcher-servlet.xml主要代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"</span></div><div class="line">        http://www.springframework.org/schema/beans</div><div class="line">        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</div><div class="line">        http://www.springframework.org/schema/context</div><div class="line">        http://www.springframework.org/schema/context/spring-context-3.0.xsd"&gt;</div><div class="line"></div><div class="line">    <span class="comment">&lt;!--作用是扫描指定包下所有的包含注解的类--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.jsu.mvc"</span>/&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>###使用HttpServletResponse 重定向到另一个视图(其他不变 )</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/resp"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">        resp.sendRedirect(<span class="string">"index.jsp"</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###使用HttpServletRequest 转发（默认访问/下的index.jsp页面 不受渲染器的影响）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/resp"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        req.setAttribute(<span class="string">"message"</span>,<span class="string">"it's forword "</span>);</div><div class="line">        req.getRequestDispatcher(<span class="string">"index.jsp"</span>).forward(req,resp);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>###直接返回jsp页面的名称（无渲染器）<br>其他的配置不变</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/nice"</span>)</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">hello1</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">//转发方式1</span></div><div class="line">      <span class="keyword">return</span> <span class="string">"home.jsp"</span>;</div><div class="line">      <span class="comment">//转发方式2</span></div><div class="line">      <span class="keyword">return</span> <span class="string">"forward:index.jsp"</span>;</div><div class="line">      <span class="comment">//重定向方式</span></div><div class="line">      <span class="keyword">return</span> <span class="string">"redirect:index.jsp"</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>###当有渲染器指定</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/nice"</span>)</div><div class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hello1</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="comment">//转发方式1</span></div><div class="line">       <span class="keyword">return</span> <span class="string">"home"</span>;</div><div class="line">       <span class="comment">//转发方式2</span></div><div class="line">       <span class="keyword">return</span> <span class="string">"forward:index"</span>;</div><div class="line">       <span class="comment">//重定向方式  hello指的是requsrmapping</span></div><div class="line">       <span class="keyword">return</span> <span class="string">"redirect:hello"</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>##使用view</p>
+<p>###使用modelandview<br>    需要视图解析器 能指定跳转页面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> <span class="keyword">implements</span> <span class="title">Controller</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handleRequest</span><span class="params">(javax.servlet.http.HttpServletRequest httpServletRequest,</span></span></div><div class="line">                                      javax.servlet.http.HttpServletResponse httpServletResponse) <span class="keyword">throws</span> Exception &#123;</div><div class="line"></div><div class="line">        ModelAndView mv = <span class="keyword">new</span> ModelAndView();</div><div class="line">        <span class="comment">//封装要显示到视图的数据</span></div><div class="line">        mv.addObject(<span class="string">"msg"</span>,<span class="string">"hello myfirst mvc"</span>);</div><div class="line">        <span class="comment">//视图名</span></div><div class="line">        mv.setViewName(<span class="string">"hello"</span>);</div><div class="line">        <span class="keyword">return</span> mv;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>[servlet-name]-servlet.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--配置渲染器--&gt;</span></div><div class="line">    <span class="comment">&lt;!--配置hellocontroller中页面的位置--&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"viewResolver"</span></span></div><div class="line">                     <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.UrlBasedViewResolver"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"viewClass"</span> <span class="attr">value</span>=<span class="string">"org.springframework.web.servlet.view.JstlView"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!--结果视图的前缀--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!--结果视图的后缀--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"/hello.do"</span> <span class="attr">class</span>=<span class="string">"com.jsu.mvc.HelloController"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>###使用modelview<br>不需要视图解析器 不能指定跳转页面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过modelmap方式</span></div><div class="line">  <span class="meta">@RequestMapping</span>(<span class="string">"/modelmap"</span>)</div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">modelHello</span><span class="params">(String name,ModelMap map)</span></span>&#123;</div><div class="line">      map.addAttribute(<span class="string">"name"</span>,name);</div><div class="line">      System.out.println(name);</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="string">"index.jsp"</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>#结语<br>与君共勉！</p>
+
+                </div>
+                
+<nav id="article-nav">
+  
+    <a href="/2016/10/28/tomcat-虚拟目录配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        
+           tomcat-虚拟目录配置 >
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/28/使用idea开发srpingMVC第一个Demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> < 使用idea开发srpingMVC第一个Demo</div>
+    </a>
+  
+</nav>
+
+
+            </div>
+        </div>
+        
+            <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//yzzting.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//yzzting.disqus.com/count.js" async></script>
+
+        
+        
+</article>
+
+
+
+		</div>
+		<div id="heart"></div>
+
+    <footer class="blog-footer" id="blog-footer">
+        <div id="footer-info" class="inner">
+            Made with ♥ by <a href="https://github.com/yzzting/hexo-theme-MyFairLady" target="_blank">MyFairLady</a>
+        </div>
+    </footer>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toTop.js"></script>
+
+	</body>
+	</html>
